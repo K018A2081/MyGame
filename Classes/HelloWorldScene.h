@@ -31,12 +31,12 @@ class HelloWorld : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
-
+	void update(float delta) override;
     virtual bool init();
-    
+	cocos2d::Sprite*sprite;
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-    
+	float rot;
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };

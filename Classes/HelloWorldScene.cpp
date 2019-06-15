@@ -115,11 +115,27 @@ bool HelloWorld::init()
     //    // add the sprite as a child to this layer
     //    this->addChild(sprite, 0);
     //}
-    return true;
-	Sprite *sprite = Sprite::create("HP.png");
+	sprite = Sprite::create("HP.png");
 	this->addChild(sprite);
+	sprite->setPosition(Vec2(200.0f, 100.0f));
+	//sprite->setRotation(45.0f);
+	/*sprite->setScale(3.0f, 4.0f);
+	sprite->setFlippedX(true);
+	sprite->setFlippedY(true);
+	sprite->setVisible(true);
+	sprite->setColor(Color3B(255, 0, 0));*/
+	//sprite->setOpacity(0x80);
+	rot = 0;
+	sprite->setAnchorPoint(Vec2(1.0f, 1.0f));
+	this->scheduleUpdate();
+    return true;
+	
 }
-
+void HelloWorld::update(float delta)
+{
+	rot += 10.0f;
+	sprite->setRotation(rot);
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
